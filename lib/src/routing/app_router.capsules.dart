@@ -4,21 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:rearch/rearch.dart';
 
 BeamerDelegate appRouterCapsule(CapsuleHandle use) {
-  final appScaffoldKey = GlobalKey();
-
-  // print('appScaffoldKey: $appScaffoldKey');
-
-  // final appScaffold = use.lazyValue(
-  //   () => AppScaffold(
-  //     key: appScaffoldKey,
-  //   ),
-  // );
-
   return BeamerDelegate(
     locationBuilder: (info, params) => RootLocation(
-      child: AppScaffold(
-        key: appScaffoldKey,
-      ),
+      child: const AppScaffold(),
     ),
   );
 }

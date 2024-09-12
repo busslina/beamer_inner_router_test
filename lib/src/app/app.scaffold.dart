@@ -26,7 +26,7 @@ class AppScaffold extends RearchConsumer {
     //   [currentScreen.value],
     // );
 
-    final screenRouterKey = use.lazyValue(() => GlobalKey());
+    // final screenRouterKey = use.lazyValue(() => GlobalKey());
 
     // print('screenRouterKey: $screenRouterKey');
 
@@ -34,10 +34,25 @@ class AppScaffold extends RearchConsumer {
 
     use.effect(
       () {
+        BeamLocation? prevLocation;
+        RouteInformation? prevRouteInfo;
+
         void listener() {
+          final location = screenRouter.currentBeamLocation;
+          final routeInfo = location.state.routeInformation;
+
           print(
-            'Screen router listener -- ${screenRouter.currentBeamLocation.state.routeInformation.uri.toString()}',
+            'Screen router listener -- I -- ${location.state.routeInformation.uri.toString()} -- Same location: ${location == prevLocation} -- Same route info: ${routeInfo == prevRouteInfo}',
           );
+          print(
+            'Screen router listener -- II -- Prev route Info: ${prevRouteInfo?.uri.toString()}',
+          );
+          print(
+            'Screen router listener -- III -- Route Info: ${routeInfo.uri.toString()}',
+          );
+
+          prevLocation = location;
+          prevRouteInfo = routeInfo;
         }
 
         screenRouter.addListener(listener);
@@ -56,7 +71,7 @@ class AppScaffold extends RearchConsumer {
           // Screen router
           Expanded(
             child: Beamer(
-              key: screenRouterKey,
+              // key: screenRouterKey,
               routerDelegate: screenRouter,
             ),
           ),

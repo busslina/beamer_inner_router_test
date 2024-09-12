@@ -6,8 +6,14 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) {
   return BeamerDelegate(
     locationBuilder: RoutesLocationBuilder(
       routes: {
-        Routes.index: (context, state, data) => IndexScreen(),
-        Routes.settings: (context, state, data) => SettingsScreen(),
+        Routes.index: (context, state, data) {
+          print('screenRouterCapsule -- index builder');
+          return const IndexScreen();
+        },
+        Routes.settings: (context, state, data) {
+          print('screenRouterCapsule -- settings builder');
+          return const SettingsScreen();
+        },
       },
     ).call,
   );
