@@ -1,3 +1,4 @@
+import 'package:beamer/beamer.dart';
 import 'package:beamer_inner_router_test/lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rearch/flutter_rearch.dart';
@@ -23,6 +24,8 @@ class AppScaffold extends RearchConsumer {
       [currentScreen.value],
     );
 
+    final router = use(routerCapsule);
+
     return Scaffold(
       // body: Center(child: Text('App Scaffold')),
       body: Column(
@@ -31,7 +34,10 @@ class AppScaffold extends RearchConsumer {
           buildHeader(screen),
 
           // Screen
-          buildScreen(screen),
+          // buildScreen(screen),
+
+          // Beamer router
+          Beamer(routerDelegate: router),
 
           // Footer
           buildFooter(),
