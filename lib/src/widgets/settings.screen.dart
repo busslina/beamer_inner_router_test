@@ -8,7 +8,8 @@ class SettingsScreen extends RearchConsumer with Screen {
   const SettingsScreen({super.key});
 
   @override
-  Color get bgColor => Colors.red.withOpacity(0.5);
+  // Color get bgColor => Colors.red.withOpacity(0.5);
+  Color get bgColor => Colors.red;
 
   @override
   String get title => 'Settings';
@@ -18,7 +19,8 @@ class SettingsScreen extends RearchConsumer with Screen {
     return ElevatedButton(
       onPressed: () {
         print('Settings -- back');
-        context.beamBack();
+        // context.beamBack();
+        context.popToNamed(Routes.index);
       },
       child: const Text(' back'),
     );

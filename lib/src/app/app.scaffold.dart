@@ -11,26 +11,28 @@ class AppScaffold extends RearchConsumer {
   Widget build(BuildContext context, WidgetHandle use) {
     use.printConsumerLifecycle('AppScaffold');
 
-    final currentScreen = use.lazyData<Screen>(() => const IndexScreen());
+    // final currentScreen = use.lazyData<Screen>(() => const IndexScreen());
 
-    final screen = currentScreen.value;
+    // final screen = currentScreen.value;
+
+    final screenRouter = use(screenRouterCapsule);
+
+    final currentPath = use.lazyData(
+      () => screenRouter.currentBeamLocation.state.routeInformation.uri.path,
+    );
+
+    final headerSubtitle = use.memo(
+      () => getScreenHeaderSubtitle(currentPath.value),
+      [currentPath.value],
+    );
 
     // use.effect(
     //   () {
-    //     if (screen.key is! GlobalKey) {
-    //       throw ('Screen must have a GlobalKey -- ${screen.title}');
-    //     }
 
     //     return null;
     //   },
-    //   [currentScreen.value],
+    //   [currentPath.value],
     // );
-
-    // final screenRouterKey = use.lazyValue(() => GlobalKey());
-
-    // print('screenRouterKey: $screenRouterKey');
-
-    final screenRouter = use(screenRouterCapsule);
 
     use.effect(
       () {
@@ -53,6 +55,8 @@ class AppScaffold extends RearchConsumer {
 
           prevLocation = location;
           prevRouteInfo = routeInfo;
+
+          currentPath.value = routeInfo.uri.path;
         }
 
         screenRouter.addListener(listener);
@@ -66,7 +70,7 @@ class AppScaffold extends RearchConsumer {
       body: Column(
         children: [
           // Header
-          buildHeader(screen),
+          buildHeader(subtitle: headerSubtitle),
 
           // Screen router
           Expanded(
@@ -83,7 +87,7 @@ class AppScaffold extends RearchConsumer {
     );
   }
 
-  Widget buildHeader(Screen currentScreen) => Container(
+  Widget buildHeader({required String? subtitle}) => Container(
         color: Colors.grey,
         width: double.infinity,
         constraints: const BoxConstraints(minHeight: 100),
@@ -97,10 +101,11 @@ class AppScaffold extends RearchConsumer {
             ),
 
             // Subtitle
-            Text(
-              currentScreen.title,
-              style: const TextStyle(fontSize: 18),
-            ),
+            if (subtitle != null)
+              Text(
+                subtitle,
+                style: const TextStyle(fontSize: 18),
+              ),
           ],
         ),
       );
