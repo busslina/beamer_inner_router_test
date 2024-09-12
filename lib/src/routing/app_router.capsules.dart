@@ -6,36 +6,21 @@ import 'package:rearch/rearch.dart';
 BeamerDelegate appRouterCapsule(CapsuleHandle use) {
   final appScaffoldKey = GlobalKey();
 
-  print('appScaffoldKey: $appScaffoldKey');
+  // print('appScaffoldKey: $appScaffoldKey');
 
-  final appScaffold = use.lazyValue(
-    () => AppScaffold(
-      key: appScaffoldKey,
-    ),
-  );
-
-  return use.memo(
-    () => BeamerDelegate(
-      // locationBuilder: RoutesLocationBuilder(
-      //   routes: {
-      //     // '*': (_, __, ___) => appScaffold,
-      //     '/*': (_, __, ___) => appScaffold,
-      //   },
-      // ).call,
-      locationBuilder: (info, params) => RootLocation(child: appScaffold),
-    ),
-  );
-
-  // return BeamerDelegate(
-  //   locationBuilder: RoutesLocationBuilder(
-  //     routes: {
-  //       // '*': (_, __, ___) => AppScaffold(
-  //       //     // key: appScaffoldKey,
-  //       //     ),
-  //       '*': (_, __, ___) => appScaffold,
-  //     },
-  //   ).call,
+  // final appScaffold = use.lazyValue(
+  //   () => AppScaffold(
+  //     key: appScaffoldKey,
+  //   ),
   // );
+
+  return BeamerDelegate(
+    locationBuilder: (info, params) => RootLocation(
+      child: AppScaffold(
+        key: appScaffoldKey,
+      ),
+    ),
+  );
 }
 
 BeamerParser appRouterParserCapsule(CapsuleHandle use) => BeamerParser();

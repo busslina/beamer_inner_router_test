@@ -32,6 +32,21 @@ class AppScaffold extends RearchConsumer {
 
     final screenRouter = use(screenRouterCapsule);
 
+    use.effect(
+      () {
+        void listener() {
+          print(
+            'Screen router listener -- ${screenRouter.currentBeamLocation.state.routeInformation.uri.toString()}',
+          );
+        }
+
+        screenRouter.addListener(listener);
+
+        return () => screenRouter.removeListener(listener);
+      },
+      [],
+    );
+
     return Scaffold(
       body: Column(
         children: [
