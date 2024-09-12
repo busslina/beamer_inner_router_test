@@ -24,7 +24,7 @@ class AppScaffold extends RearchConsumer {
       [currentScreen.value],
     );
 
-    final router = use(routerCapsule);
+    final screenRouter = use(screenRouterCapsule);
 
     return Scaffold(
       // body: Center(child: Text('App Scaffold')),
@@ -36,8 +36,8 @@ class AppScaffold extends RearchConsumer {
           // Screen
           // buildScreen(screen),
 
-          // Beamer router
-          Beamer(routerDelegate: router),
+          // Screen router
+          Expanded(child: Beamer(routerDelegate: screenRouter)),
 
           // Footer
           buildFooter(),
@@ -68,12 +68,12 @@ class AppScaffold extends RearchConsumer {
         ),
       );
 
-  Widget buildScreen(Screen currentScreen) => Expanded(
-        child: Container(
-          color: Colors.purple,
-          child: currentScreen,
-        ),
-      );
+  // Widget buildScreen(Screen currentScreen) => Expanded(
+  //       child: Container(
+  //         color: Colors.purple,
+  //         child: currentScreen,
+  //       ),
+  //     );
 
   Widget buildFooter() => Container(
         color: Colors.yellow,

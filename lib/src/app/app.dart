@@ -6,10 +6,9 @@ class App extends RearchConsumer {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetHandle use) {
-    return const MaterialApp(
-      home: AppScaffold(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  Widget build(BuildContext context, WidgetHandle use) => MaterialApp.router(
+        routeInformationParser: use(appRouterParserCapsule),
+        routerDelegate: use(appRouterCapsule),
+        debugShowCheckedModeBanner: false,
+      );
 }
