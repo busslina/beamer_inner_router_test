@@ -6,14 +6,14 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) {
   return BeamerDelegate(
     locationBuilder: RoutesLocationBuilder(
       routes: {
-        Routes.index: (context, state, data) {
-          print('screenRouterCapsule -- index builder');
-          return const IndexScreen();
-        },
-        Routes.settings: (context, state, data) {
-          print('screenRouterCapsule -- settings builder');
-          return const SettingsScreen();
-        },
+        Routes.index: (context, state, data) => const BeamPage(
+              child: IndexScreen(),
+              type: BeamPageType.noTransition,
+            ),
+        Routes.settings: (context, state, data) => const BeamPage(
+              child: SettingsScreen(),
+              type: BeamPageType.noTransition,
+            ),
       },
     ).call,
   );
