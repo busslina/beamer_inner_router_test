@@ -9,11 +9,10 @@ class AppScaffold extends RearchConsumer {
 
   @override
   Widget build(BuildContext context, WidgetHandle use) {
+    // ignore: avoid_print
+    void debug(String msg) => print('AppScaffold -- $msg');
+
     use.printConsumerLifecycle('AppScaffold');
-
-    // final currentScreen = use.lazyData<Screen>(() => const IndexScreen());
-
-    // final screen = currentScreen.value;
 
     final screenRouter = use(screenRouterCapsule);
 
@@ -26,37 +25,14 @@ class AppScaffold extends RearchConsumer {
       [currentPath.value],
     );
 
-    // use.effect(
-    //   () {
-
-    //     return null;
-    //   },
-    //   [currentPath.value],
-    // );
-
     use.effect(
       () {
-        BeamLocation? prevLocation;
-        RouteInformation? prevRouteInfo;
+        debug('Setting up router listener');
 
         void listener() {
-          final location = screenRouter.currentBeamLocation;
-          final routeInfo = location.state.routeInformation;
-
-          print(
-            'Screen router listener -- I -- ${location.state.routeInformation.uri.toString()} -- Same location: ${location == prevLocation} -- Same route info: ${routeInfo == prevRouteInfo}',
+          debug(
+            'Router listener -- ${screenRouter.currentBeamLocation.state.routeInformation.uri.path}',
           );
-          print(
-            'Screen router listener -- II -- Prev route Info: ${prevRouteInfo?.uri.toString()}',
-          );
-          print(
-            'Screen router listener -- III -- Route Info: ${routeInfo.uri.toString()}',
-          );
-
-          prevLocation = location;
-          prevRouteInfo = routeInfo;
-
-          currentPath.value = routeInfo.uri.path;
         }
 
         screenRouter.addListener(listener);
