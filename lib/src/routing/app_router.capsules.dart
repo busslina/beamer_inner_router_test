@@ -9,9 +9,9 @@ BeamerDelegate appRouterCapsule(CapsuleHandle use) {
     locationBuilder: (info, params) => RootLocation(
       child: const AppScaffold(),
     ),
-    buildListener: (context, delegate) => print(
-      'App Router -- buildListener -- ${delegate.currentBeamLocation.state.routeInformation.uri.path}',
-    ),
+    // buildListener: (context, delegate) => print(
+    //   'App Router -- buildListener -- ${delegate.currentBeamLocation.state.routeInformation.uri.path}',
+    // ),
   );
 }
 
