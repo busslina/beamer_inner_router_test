@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:rearch/rearch.dart';
 
 BeamerDelegate appRouterCapsule(CapsuleHandle use) {
+  final appScaffoldKey = use.lazyValue(GlobalKey.new);
+
   return BeamerDelegate(
+    // beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
     locationBuilder: (info, params) => RootLocation(
-      child: const AppScaffold(),
+      child: AppScaffold(
+        key: appScaffoldKey,
+      ),
     ),
   );
 }

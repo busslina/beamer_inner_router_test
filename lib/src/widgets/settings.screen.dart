@@ -20,7 +20,8 @@ class SettingsScreen extends RearchConsumer with Screen {
       onPressed: () {
         print('Settings -- back');
         // context.beamBack();
-        context.popToNamed(Routes.index);
+        // context.popToNamed(Routes.index);
+        context.beamToNamed(Routes.index);
       },
       child: const Text(' back'),
     );
