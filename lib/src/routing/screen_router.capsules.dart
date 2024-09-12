@@ -23,6 +23,12 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) {
             ),
       },
     ).call,
+    updateFromParent: true,
+    // updateParent: false,
+    updateParent: true,
+    buildListener: (context, delegate) => print(
+      'Screen Router -- buildListener -- ${delegate.currentBeamLocation.state.routeInformation.uri.path}',
+    ),
   );
 }
 

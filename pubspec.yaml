@@ -7,7 +7,9 @@ environment:
   sdk: ^3.5.2
 
 dependencies:
-  beamer: ^1.6.1
+  # beamer: ^1.6.1
+  beamer:
+    path: ../../FORKS/beamer/package
   flutter:
     sdk: flutter
   flutter_rearch: ^1.6.8

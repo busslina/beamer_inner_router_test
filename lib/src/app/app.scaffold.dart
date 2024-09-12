@@ -33,6 +33,9 @@ class AppScaffold extends RearchConsumer {
           debug(
             'Router listener -- ${screenRouter.currentBeamLocation.state.routeInformation.uri.path}',
           );
+
+          currentPath.value =
+              screenRouter.currentBeamLocation.state.routeInformation.uri.path;
         }
 
         screenRouter.addListener(listener);
@@ -51,7 +54,6 @@ class AppScaffold extends RearchConsumer {
           // Screen router
           Expanded(
             child: Beamer(
-              // key: screenRouterKey,
               routerDelegate: screenRouter,
             ),
           ),
