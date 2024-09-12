@@ -12,10 +12,12 @@ packages:
   beamer:
     dependency: "direct main"
     description:
-      path: "../../FORKS/beamer/package"
-      relative: true
-    source: path
-    version: "2.0.0-dev.1"
+      path: package
+      ref: "v1.6"
+      resolved-ref: d7fcbec9bc1b1b6be29f316b9aa8274b732a0bb8
+      url: "https://github.com/busslina/beamer/"
+    source: git
+    version: "1.6.1"
   boolean_selector:
     dependency: transitive
     description:

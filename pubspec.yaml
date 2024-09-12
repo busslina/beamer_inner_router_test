@@ -8,8 +8,13 @@ environment:
 
 dependencies:
   # beamer: ^1.6.1
+  # beamer:
+  #   path: ../../FORKS/beamer/package
   beamer:
-    path: ../../FORKS/beamer/package
+    git:
+      url: https://github.com/busslina/beamer/
+      path: package
+      ref: v1.6
   flutter:
     sdk: flutter
   flutter_rearch: ^1.6.8
