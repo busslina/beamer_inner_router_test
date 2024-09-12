@@ -5,7 +5,6 @@ import 'package:rearch/rearch.dart';
 
 BeamerDelegate appRouterCapsule(CapsuleHandle use) {
   return BeamerDelegate(
-    // beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
     locationBuilder: (info, params) => RootLocation(
       child: const AppScaffold(),
     ),

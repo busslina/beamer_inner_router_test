@@ -6,7 +6,6 @@ import 'package:rearch/rearch.dart';
 BeamerDelegate screenRouterCapsule(CapsuleHandle use) {
   return BeamerDelegate(
     setBrowserTabTitle: true,
-    // beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
     locationBuilder: RoutesLocationBuilder(
       routes: {
         Routes.index: (context, state, data) => const BeamPage(
