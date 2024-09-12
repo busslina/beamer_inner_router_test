@@ -9,20 +9,26 @@ class AppScaffold extends RearchConsumer {
 
   @override
   Widget build(BuildContext context, WidgetHandle use) {
-    final currentScreen = use.lazyData<Screen>(() => IndexScreen());
+    use.printConsumerLifecycle('AppScaffold');
+
+    final currentScreen = use.lazyData<Screen>(() => const IndexScreen());
 
     final screen = currentScreen.value;
 
-    use.effect(
-      () {
-        if (screen.key is! GlobalKey) {
-          throw ('Screen must have a GlobalKey -- ${screen.title}');
-        }
+    // use.effect(
+    //   () {
+    //     if (screen.key is! GlobalKey) {
+    //       throw ('Screen must have a GlobalKey -- ${screen.title}');
+    //     }
 
-        return null;
-      },
-      [currentScreen.value],
-    );
+    //     return null;
+    //   },
+    //   [currentScreen.value],
+    // );
+
+    final screenRouterKey = use.lazyValue(() => GlobalKey());
+
+    // print('screenRouterKey: $screenRouterKey');
 
     final screenRouter = use(screenRouterCapsule);
 
@@ -33,7 +39,12 @@ class AppScaffold extends RearchConsumer {
           buildHeader(screen),
 
           // Screen router
-          Expanded(child: Beamer(routerDelegate: screenRouter)),
+          Expanded(
+            child: Beamer(
+              key: screenRouterKey,
+              routerDelegate: screenRouter,
+            ),
+          ),
 
           // Footer
           buildFooter(),

@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rearch/flutter_rearch.dart';
 import 'package:rearch/rearch.dart';
 
+const _title = 'Settings';
+
 class SettingsScreen extends RearchConsumer with Screen {
-  SettingsScreen() : super(key: GlobalKey());
+  const SettingsScreen({super.key});
+
+  // const SettingsScreen() : super(key: const Key(_title));
 
   @override
   Color get bgColor => Colors.red.withOpacity(0.5);
 
   @override
-  String get title => 'Settings';
+  String get title => _title;
 
   @override
   Widget buildBody(BuildContext context, CapsuleReader use) {

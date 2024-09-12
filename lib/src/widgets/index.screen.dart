@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rearch/flutter_rearch.dart';
 import 'package:rearch/rearch.dart';
 
+const _title = 'Index';
+
 class IndexScreen extends RearchConsumer with Screen {
-  IndexScreen() : super(key: GlobalKey());
+  const IndexScreen({super.key});
+
+  // const IndexScreen() : super(key: const Key(_title));
 
   @override
   Color get bgColor => Colors.blue.withOpacity(0.5);
 
   @override
-  String get title => 'Index';
+  String get title => _title;
 
   @override
   Widget buildBody(BuildContext context, CapsuleReader use) {

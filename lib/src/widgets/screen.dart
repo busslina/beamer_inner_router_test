@@ -1,3 +1,4 @@
+import 'package:beamer_inner_router_test/lib.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rearch/flutter_rearch.dart';
 import 'package:rearch/rearch.dart';
@@ -9,6 +10,8 @@ mixin Screen on RearchConsumer {
 
   @override
   Widget build(BuildContext context, WidgetHandle use) {
+    use.printConsumerLifecycle('Screen($title)');
+
     return SizedBox.expand(
       child: Container(
         color: bgColor,
