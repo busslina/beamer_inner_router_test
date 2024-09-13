@@ -3,7 +3,7 @@ import 'package:beamer_inner_router_test/lib.dart';
 import 'package:flutter/material.dart';
 import 'package:rearch/rearch.dart';
 
-BeamerDelegate screenRouterCapsule(CapsuleHandle use) => BeamerDelegate(
+BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       setBrowserTabTitle: true,
       locationBuilder: RoutesLocationBuilder(
         routes: {
@@ -24,14 +24,3 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       updateFromParent: true,
       updateParent: true,
     );
-
-class Routes {
-  static const index = '/';
-  static const settings = '/settings';
-}
-
-String? getScreenHeaderSubtitle(String currentRoute) => switch (currentRoute) {
-      Routes.index => null,
-      Routes.settings => 'Settings',
-      _ => throw ('Unknown route: $currentRoute'),
-    };

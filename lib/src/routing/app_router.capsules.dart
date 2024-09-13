@@ -3,16 +3,12 @@ import 'package:beamer_inner_router_test/lib.dart';
 import 'package:flutter/material.dart';
 import 'package:rearch/rearch.dart';
 
-BeamerDelegate appRouterCapsule(CapsuleHandle use) {
-  return BeamerDelegate(
-    locationBuilder: (info, params) => RootLocation(
-      child: const AppScaffold(),
-    ),
-    // buildListener: (context, delegate) => print(
-    //   'App Router -- buildListener -- ${delegate.currentBeamLocation.state.routeInformation.uri.path}',
-    // ),
-  );
-}
+BeamerDelegate appRouterCapsule(CapsuleHandle use) => BeamerDelegate(
+      setBrowserTabTitle: false,
+      locationBuilder: (info, params) => RootLocation(
+        child: const AppScaffold(),
+      ),
+    );
 
 BeamerParser appRouterParserCapsule(CapsuleHandle use) => BeamerParser();
 

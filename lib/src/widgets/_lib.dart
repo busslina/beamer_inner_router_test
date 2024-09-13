@@ -1,3 +1,1 @@
-export 'index.screen.dart';
-export 'screen.dart';
-export 'settings.screen.dart';
+export 'screen/_lib.dart';

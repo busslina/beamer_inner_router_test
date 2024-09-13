@@ -8,7 +8,6 @@ class IndexScreen extends RearchConsumer with Screen {
   const IndexScreen({super.key});
 
   @override
-  // Color get bgColor => Colors.blue.withOpacity(0.5);
   Color get bgColor => Colors.blue;
 
   @override
