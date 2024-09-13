@@ -7,6 +7,8 @@ import 'package:rearch/rearch.dart';
 
 BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       setBrowserTabTitle: false,
+      transitionDelegate: const NoAnimationTransitionDelegate(),
+      beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
       // locationBuilder: (info, params) {
       //   final screenInfo = _getScreenInfo(info);
 
@@ -24,20 +26,27 @@ BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
 
       locationBuilder: RoutesLocationBuilder(
         routes: {
-          Routes.index: (context, state, data) => BeamPage(
-                key: const ValueKey(Routes.index),
+          '*': (context, state, data) => BeamPage(
+                key: ValueKey(state.uri.path),
                 child: Header(
                   screenInfo: _getScreenInfo(state),
                 ),
                 type: BeamPageType.noTransition,
               ),
-          Routes.settings: (context, state, data) => BeamPage(
-                key: const ValueKey(Routes.settings),
-                child: Header(
-                  screenInfo: _getScreenInfo(state),
-                ),
-                type: BeamPageType.noTransition,
-              ),
+          // Routes.index: (context, state, data) => BeamPage(
+          //       key: const ValueKey(Routes.index),
+          //       child: Header(
+          //         screenInfo: _getScreenInfo(state),
+          //       ),
+          //       type: BeamPageType.noTransition,
+          //     ),
+          // Routes.settings: (context, state, data) => BeamPage(
+          //       key: const ValueKey(Routes.settings),
+          //       child: Header(
+          //         screenInfo: _getScreenInfo(state),
+          //       ),
+          //       type: BeamPageType.noTransition,
+          //     ),
         },
       ).call,
     );
