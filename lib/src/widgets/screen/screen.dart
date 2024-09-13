@@ -25,3 +25,14 @@ mixin Screen on RearchConsumer {
 
   Widget buildBody(BuildContext context, CapsuleReader use);
 }
+
+class ScreenInfo {
+  const ScreenInfo({
+    required this.subtitle,
+  });
+
+  final String? subtitle;
+
+  @override
+  String toString() => 'ScreenInfo -- subtitle: $subtitle';
+}

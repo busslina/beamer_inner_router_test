@@ -11,27 +11,17 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) => BeamerDelegate(
                 key: ValueKey(Routes.index),
                 child: IndexScreen(),
                 type: BeamPageType.noTransition,
-                opaque: false,
               ),
           Routes.settings: (context, state, data) => const BeamPage(
                 key: ValueKey(Routes.settings),
                 child: SettingsScreen(),
                 type: BeamPageType.noTransition,
-                opaque: false,
               ),
         },
       ).call,
-      updateFromParent: true,
-      updateParent: true,
     );
 
 class Routes {
   static const index = '/';
   static const settings = '/settings';
 }
-
-String? getScreenHeaderSubtitle(String currentRoute) => switch (currentRoute) {
-      Routes.index => null,
-      Routes.settings => 'Settings',
-      _ => throw ('Unknown route: $currentRoute'),
-    };
