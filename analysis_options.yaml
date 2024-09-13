@@ -7,3 +7,7 @@ linter:
     - directives_ordering
     - require_trailing_commas
     - sort_constructors_first
+    - discarded_futures
+    - eol_at_end_of_file
+    - always_declare_return_types
+    - always_put_control_body_on_new_line
