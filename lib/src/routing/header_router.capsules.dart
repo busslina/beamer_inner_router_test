@@ -33,20 +33,6 @@ BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
                 ),
                 type: BeamPageType.noTransition,
               ),
-          // Routes.index: (context, state, data) => BeamPage(
-          //       key: const ValueKey(Routes.index),
-          //       child: Header(
-          //         screenInfo: _getScreenInfo(state),
-          //       ),
-          //       type: BeamPageType.noTransition,
-          //     ),
-          // Routes.settings: (context, state, data) => BeamPage(
-          //       key: const ValueKey(Routes.settings),
-          //       child: Header(
-          //         screenInfo: _getScreenInfo(state),
-          //       ),
-          //       type: BeamPageType.noTransition,
-          //     ),
         },
       ).call,
     );
