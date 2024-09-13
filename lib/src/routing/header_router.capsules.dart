@@ -9,21 +9,6 @@ BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       setBrowserTabTitle: false,
       transitionDelegate: const NoAnimationTransitionDelegate(),
       beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
-      // locationBuilder: (info, params) {
-      //   final screenInfo = _getScreenInfo(info);
-
-      //   print(
-      //     'headerRouterCapsule -- locationBuilder -- screen info: $screenInfo',
-      //   );
-
-      //   return HeaderLocation(
-      //     child: Header(
-      //       key: Key(info.uri.path),
-      //       screenInfo: screenInfo,
-      //     ),
-      //   );
-      // },
-
       locationBuilder: RoutesLocationBuilder(
         routes: {
           '*': (context, state, data) => BeamPage(
@@ -46,27 +31,3 @@ String? _getHeaderSubtitle(String currentRoute) => switch (currentRoute) {
       Routes.settings => 'Settings',
       _ => throw ('Unknown route: $currentRoute'),
     };
-
-// class HeaderLocation extends BeamLocation {
-//   HeaderLocation({
-//     required this.child,
-//   });
-
-//   final Widget child;
-
-//   @override
-//   List<BeamPage> buildPages(
-//     BuildContext context,
-//     RouteInformationSerializable state,
-//   ) =>
-//       [
-//         BeamPage(
-//           key: ValueKey(state.routeInformation.uri.path),
-//           child: child,
-//           type: BeamPageType.noTransition,
-//         ),
-//       ];
-
-//   @override
-//   List<Pattern> get pathPatterns => [];
-// }
