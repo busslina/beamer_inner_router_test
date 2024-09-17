@@ -13,11 +13,11 @@ packages:
     dependency: "direct main"
     description:
       path: package
-      ref: "v1.6"
-      resolved-ref: d7fcbec9bc1b1b6be29f316b9aa8274b732a0bb8
-      url: "https://github.com/busslina/beamer/"
+      ref: "1649a65aedf422d9d90d9692df2fa15f19db660d"
+      resolved-ref: "1649a65aedf422d9d90d9692df2fa15f19db660d"
+      url: "https://github.com/busslina/beamer"
     source: git
-    version: "1.6.1"
+    version: "2.0.0-dev.1"
   boolean_selector:
     dependency: transitive
     description:

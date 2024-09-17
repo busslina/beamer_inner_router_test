@@ -12,9 +12,9 @@ dependencies:
   #   path: ../../FORKS/beamer/package
   beamer:
     git:
-      url: https://github.com/busslina/beamer/
+      url: https://github.com/busslina/beamer
       path: package
-      ref: v1.6
+      ref: 1649a65aedf422d9d90d9692df2fa15f19db660d
   flutter:
     sdk: flutter
   flutter_rearch: ^1.6.8

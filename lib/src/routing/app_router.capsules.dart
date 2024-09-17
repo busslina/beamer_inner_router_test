@@ -7,26 +7,23 @@ BeamerDelegate appRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       setBrowserTabTitle: false,
       transitionDelegate: const NoAnimationTransitionDelegate(),
       beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
-      locationBuilder: (info, params) => RootLocation(
-        child: const AppScaffold(),
-      ),
+      stackBuilder: (info, params) => RootStack(),
     );
 
 BeamerParser appRouterParserCapsule(CapsuleHandle use) => BeamerParser();
 
-class RootLocation extends BeamLocation {
-  RootLocation({
-    required this.child,
-  });
-
-  final Widget child;
-
+class RootStack extends BeamStack {
   @override
   List<BeamPage> buildPages(
     BuildContext context,
     RouteInformationSerializable state,
   ) =>
-      [BeamPage(child: child)];
+      [
+        const BeamPage(
+          key: ValueKey('RootLocation'),
+          child: AppScaffold(),
+        ),
+      ];
 
   @override
   List<Pattern> get pathPatterns => [];

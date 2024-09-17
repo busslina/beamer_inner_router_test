@@ -9,7 +9,7 @@ BeamerDelegate headerRouterCapsule(CapsuleHandle use) => BeamerDelegate(
       setBrowserTabTitle: false,
       transitionDelegate: const NoAnimationTransitionDelegate(),
       beamBackTransitionDelegate: const NoAnimationTransitionDelegate(),
-      locationBuilder: RoutesLocationBuilder(
+      stackBuilder: RoutesStackBuilder(
         routes: {
           '*': (context, state, data) => BeamPage(
                 key: ValueKey(state.uri.path),
