@@ -20,6 +20,19 @@ BeamerDelegate screenRouterCapsule(CapsuleHandle use) => BeamerDelegate(
                 title: _getScreenTitle(state),
               ),
         },
+        builder: (context, navigator) => Stack(
+          children: [
+            navigator,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 30),
+                height: 50,
+                color: Colors.lime,
+              ),
+            ),
+          ],
+        ),
       ).call,
     );
 
